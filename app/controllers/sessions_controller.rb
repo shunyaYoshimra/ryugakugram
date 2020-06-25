@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: session_params[:email])
     if user && user.authenticate(session_params[:password])
       session[:user_id] = user.id
+      remember user
       redirect_to user
     else
       render :new
@@ -13,9 +14,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    reset_session
+    log_out if logged_in?
     redirect_to root_url
-    @current_user = nil
   end
 
   private
