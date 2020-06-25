@@ -1,6 +1,6 @@
 <section class="get-in-touch">
    <h1 class="title">LOG IN</h1>
-   <%= form_with url: login_path, local: true, html: { class: "contact-form "} do |f| %>
+   <%= form_with scope: :session, url: login_path, local: true, html: { class: "contact-form "} do |f| %>
       
       <div class="form-field col x-50">
         <%= f.email_field :email, class: "input-text js-input"%>
