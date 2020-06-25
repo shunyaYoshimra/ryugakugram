@@ -1,18 +1,64 @@
 <header>
   <div class="container">
     <div class="header-flex">
+    <%= link_to root_path do %>
       <h1 class="logo">Ryugakugram</h1>
+    <% end %>
       <ul class="nav">
-        <li>HOME</li>
-        <li>ABOUT</li>
+      <% if logged_in? %>
+        <%= link_to root_path do %>
+          <li>HOME</li>
+        <% end %>
+        <%= link_to about_path do %>
+          <li>ABOUT</li>
+        <% end %>
+        <%= link_to user_path(@current_user) do %>
+          <li><%= "#{@current_user.name}さん"%></li>
+        <% end %>
+        <%= link_to logout_path, method: :delete do %>
+          <li>LOG OUT</li>
+        <% end %>
+      <% else %>
+        <%= link_to root_path do %>
+          <li>HOME</li>
+        <% end %>
+       <%= link_to about_path do %>
+          <li>ABOUT</li>
+        <% end %>
+        <%= link_to login_path do %>
+          <li>LOG IN</li>
+        <% end %>
+      <% end %>
       </ul>
     </div>
   </div>
   <!--responsive-nav-->
   <nav class="hunger-nav">
     <ul>
-      <li>HOME</li>
-      <li>ABOUT</li>
+      <% if logged_in? %>
+        <%= link_to root_path do %>
+          <li>HOME</li>
+        <% end %>
+        <%= link_to about_path do %>
+          <li>ABOUT</li>
+        <% end %>
+        <%= link_to user_path(@current_user) do %>
+          <li><%= "#{@current_user.name}さん"%></li>
+        <% end %>
+        <%= link_to logout_path, method: :delete do %>
+          <li>LOG OUT</li>
+        <% end %>
+      <% else %>
+        <%= link_to root_path do %>
+          <li>HOME</li>
+        <% end %>
+        <%= link_to about_path do %>
+          <li>ABOUT</li>
+        <% end %>
+        <%= link_to login_path do %>
+          <li>LOG IN</li>
+        <% end %>
+      <% end %>
     </ul>
   </nav>
   <!-- ハンバーガーメニュー部分 -->
