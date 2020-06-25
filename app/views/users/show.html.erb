@@ -1,2 +1,37 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+
+  <div class="user-top-wrapper">
+    <div class="user-info">
+      
+        <span><%= @user.name%></span>
+    </div>
+      <p class="margin-adjust">投稿数 <span class="follow-count"></span></p>
+      
+        <p class="margin-adjust follow-link">フォロワー <span class="follow-count"></span></p>
+     
+      
+        <p class="follow-link">フォロー中 <span class="follow-count"></span></p>
+      
+  </div>
+  
+  <div class="user-profile">
+    <% if @user.profile? %>
+      <p><%= @user.profile %></p>
+    <% else %>
+      <p>ユーザーのプロフィールは設定されていません。</p>
+    <% end %>
+  </div>
+  
+    <div class="edit-link">
+      <%= link_to edit_user_path @user do %>
+      <span>プロフィールを編集</span>
+      <% end %>
+    </div>
+
+  <h2 class="post-title">Your Post</h2>
+  <div>
+    <ul class="select-icon">
+      <li><i class="fas fa-camera fa-lg icon-left"></i></li>
+      <li><i class="fas fa-heart fa-lg icon-right"></i></li>
+    </ul>
+  </div>
+  
