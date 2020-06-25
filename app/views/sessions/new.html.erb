@@ -1,2 +1,19 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<section class="get-in-touch">
+   <h1 class="title">LOG IN</h1>
+   <%= form_with url: login_path, local: true, html: { class: "contact-form "} do |f| %>
+      
+      <div class="form-field col x-50">
+        <%= f.email_field :email, class: "input-text js-input"%>
+        <%= f.label :email, class: "label" %>
+      </div>
+      <div class="form-field col x-100">
+         <%= f.password_field :password, class: "input-text js-input"%>
+         <%= f.label :password, class: "label" %>
+      </div>
+      
+      <div class="form-field col x-100 align-center">
+        <%= f.submit "submit", class: "submit-btn" %>
+      </div>
+   <% end %>
+</section>
+
