@@ -1,3 +1,56 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* home */
+
+.home{
+  text-align: center;
+  height: 60vh;
+  width: 100%;
+}
+
+.home-wrapper{
+  padding-top: 2rem;
+  margin-top: 15%;
+}
+
+.home-title{
+  font-family: 'Philosopher', sans-serif;
+  font-size: 2.5rem;
+}
+
+.home-wrapper p{
+  margin: 2rem 0 4rem;
+}
+
+.home-wrapper button{
+  padding: 13px 100px;
+}
+
+.image-wrapper{
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
+}
+
+@media (max-width: 670px){
+
+/* home */
+.home-wrapper{
+  margin-top: 30%;
+}
+
+.home-title{
+  font-size: 2rem;
+}
+
+.home-wrapper p{
+  font-size: 0.75rem;
+}
+
+.image-wrapper img{
+  width: 250px;
+}
+
+}
