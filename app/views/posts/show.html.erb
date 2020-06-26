@@ -59,6 +59,15 @@
             <span class="like-trash"><i class="fas fa-trash-alt comment-trash"></i></span>
           <% end %>
         <% end %>
+        <% if Favorite.find_by(user_id: @current_user.id, comment_id: comment.id)%>
+          <%= link_to favorite_path(comment), method: :delete do %>
+            <i class="fas fa-heart liked favorite"></i>
+          <% end %>
+        <% else %>
+          <%= link_to "/favorite/#{comment.id}", method: :post do %>
+            <i class="fas fa-heart unlike favorite"></i>
+          <% end %>
+        <% end %>
         
       <% end %>
     </div>
