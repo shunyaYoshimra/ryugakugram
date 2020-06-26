@@ -338,6 +338,148 @@ textarea:hover {
   margin-bottom: 5px;
 }
 
+/* user-show */
+
+.user-top-wrapper{
+  margin-top: 13%;
+  display: flex;
+  justify-content: center;
+  color: #333;
+}
+
+.margin-adjust{
+  margin: 0 30px;
+}
+
+.edit-link{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.edit-link span{
+  border: 1px solid #333;
+  padding: 5px 200px;
+  border-radius: 2px;
+  color: #333;
+}
+
+.select-icon{
+  text-align: center;
+  margin-top: 20px;
+  padding: 5px 0;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  width: 700px;
+  transform: translateX(370px);
+  display: flex;
+  justify-content: center;
+}
+
+.select-icon li{
+  list-style: none;
+}
+
+.icon-left{
+  color: #333;
+  margin-right: 150px;
+}
+
+.icon-right{
+  color: #999;
+  margin-left: 150px;
+}
+
+.post-title{
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  color: #333;
+  margin-top: 40px;
+}
+
+.user-nav-wrapper{
+  position: fixed;
+  top: 200px;
+  left: 40px;
+}
+
+.user-nav-wrapper li{
+  list-style: none;
+}
+
+.user-nav{
+  margin-bottom: 80px;
+}
+
+.user-nav li{
+  margin-bottom: 20px;
+}
+
+.nav-bottom{
+  display: none;
+}
+
+.nav-icon-left, .nav-icon-center, .nav-icon-right{
+  color: #666;
+}
+
+.nav-icon-left:hover, .nav-icon-center:hover, .nav-icon-right:hover{
+  opacity: 0.7;
+}
+
+.user-info img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.user-info span{
+  display: block;
+  text-align: center;
+}
+
+.user-profile{
+  margin-top: 10px;
+  margin-bottom: 5%;
+  text-align: center;
+}
+
+.this-user-post-picture img{
+ margin-top: 3px;
+ border-radius: 2px;
+}
+
+.this-user-post-picture{
+  transform:translateX(375px) ;
+  width: 700px;
+  display: none;;
+}
+
+.this-user-liked-picture{
+  transform:translateX(375px) ;
+  width: 700px;
+  display: none;;
+}
+
+.active{
+  display: block;
+}
+
+.follow-btn{
+  border-radius: 5px;
+  transform: translate(690px, -58px);
+  font-size: 0.875rem;
+  height: 26px;
+  width: 10rem;
+}
+
+.follow-count{
+  font-weight: bold;
+}
+
+.follow-link{
+  color: #333;
+}
+
 // responsive
 
 @media (max-width: 670px){
