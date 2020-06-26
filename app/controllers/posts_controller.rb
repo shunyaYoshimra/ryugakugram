@@ -1,10 +1,13 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    @like = @post
   end
 
   def show
     @post = Post.find(params[:id])
+    @new_comment = Comment.new
+    @comments = @post.comments
   end
 
   def new

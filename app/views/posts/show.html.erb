@@ -6,34 +6,62 @@
           <%= image_tag @post.picture, class: 'card-img-top' %>
       <% end %>
       <div class="card-body">
-      <%= link_to user_path (@post.user) do %>
-        <% if @post.user.image %>
-          <%= image_tag @post.user.image, size: '46x46' %>
-        <% else %>
-          <%= image_tag "/assets/default.jpg", size: '46x46' %>
+        <%= link_to user_path (@post.user) do %>
+          <% if @post.user.image %>
+            <%= image_tag @post.user.image, size: '46x46' %>
+          <% else %>
+            <%= image_tag "/assets/default.jpg", size: '46x46' %>
+          <% end %>
         <% end %>
-      <% end %>
-        <%= @post.user.name %>
-        <p class="card-text"><%= @post.content %></p>
+          <%= @post.user.name %>
+          <p class="card-text"><%= @post.content %></p>
 
-        <% if Like.find_by(user_id: current_user.id, post_id: @post.id)%>
-          <%= link_to post_like_path(@post), method: :delete do %>
-            <i class="fas fa-heart liked"></i><span class="likes-count"><%= Like.where(post_id: @post.id).count %></span>
+          <% if Like.find_by(user_id: current_user.id, post_id: @post.id)%>
+            <%= link_to post_like_path(@post), method: :delete do %>
+              <i class="fas fa-heart liked"></i><span class="likes-count"><%= Like.where(post_id: @post.id).count %></span>
+            <% end %>
+          <% else %>
+            <%= link_to post_likes_path(@post), method: :post do %>
+              <i class="fas fa-heart unlike"></i><span class="please-good">いいね！</span>
+            <% end %>
           <% end %>
-        <% else %>
-          <%= link_to post_likes_path(@post), method: :post do %>
-            <i class="fas fa-heart unlike"></i><span class="please-good">いいね！</span>
+            
+          <% if current_user.id == @post.user_id %>
+            <%= link_to post_path(@post), method: :delete do %>
+              <span class="like-trash"><i class="fas fa-trash-alt"></i></span>
+            <% end %>
           <% end %>
-        <% end %>
-          
-        <% if current_user.id == @post.user_id %>
-          <%= link_to post_path(@post), method: :delete do %>
-            <span class="like-trash"><i class="fas fa-trash-alt"></i></span>
-          <% end %>
-        <% end %>
-        <small><time><%= @post.created_at.to_s(:datetime_jp) %></time></small>
+          <small><time><%= @post.created_at.to_s(:datetime_jp) %></time></small>
       </div>
     </div>
-  </div>
+ 
+  <div class="comments-area">
+      <%= form_with url: "/comment/#{@post.id}", local: true, html: { class: "comment-form"} do |f| %>
+        <%= f.text_field :content, placeholder: '投稿へのコメント', class: 'comment-field'%>
+        <%= f.submit 'コメントする', class: "comment-field" %>
+      <% end %>
+    </div>
+  <div class="comments">
+      <% @comments.each do |comment| %>
+        <div class="comment-user">
+          <%= link_to user_path (comment.user) do %>
+            <% if comment.user.image.attached? %>
+              <%= image_tag comment.user.image, size: '32x32' %>
+            <% else %>
+              <%= image_tag "/assets/default.jpg", size: '32x32' %>
+            <% end %>
+          <% end %>
+          <%= comment.user.name %>
+        </div>
+        <p><%= comment.content %></p>
+        <% if current_user.id == comment.user_id %>
+          <%= link_to post_comment_path(@post), method: :delete do %>
+            <span class="like-trash"><i class="fas fa-trash-alt comment-trash"></i></span>
+          <% end %>
+        <% end %>
+        
+      <% end %>
+    </div>
+</div>
   <%= render 'shared/nav_bottom'%>
   <%= render 'shared/nav_left'%>
