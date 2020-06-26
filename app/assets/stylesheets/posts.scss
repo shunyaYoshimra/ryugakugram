@@ -1,3 +1,62 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// new_post
+
+.new-post-wrapper{
+  text-align: center;
+  margin-top: 16%;
+}
+
+.new-post-wrapper input, textarea{
+  display: block;
+}
+
+.new-post-wrapper textarea{
+  width: 700px;
+  border: none;
+  font-size: 1.25rem;
+  line-height: 150%;
+  transform: translateX(500px);
+  margin-bottom: 100px;
+}
+
+.new-post-wrapper label{
+  margin-bottom: 30px;
+}
+
+.new-post-wrapper label:hover{
+  opacity: 0.7;
+}
+
+#post_picture{
+  display: none;
+}
+
+.post-new-btn{
+  transform: translateX(500px);
+}
+
+// responsive
+
+@media (max-width: 670px){
+  // new_post
+
+  .new-post-wrapper{
+    margin-top: 170px;
+  }
+
+  .new-post-wrapper textarea{
+    width: 400px;
+    transform: translateX(0);
+    margin-bottom: 50px;
+    font-size: 1rem;
+  }
+
+  .post-new-btn{
+    transform: translateX(100px);
+    width: 200px;
+  }
+
+}

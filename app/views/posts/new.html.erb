@@ -1,2 +1,16 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<%= render 'shared/nav_left'%>
+<div class="new-post-wrapper">
+  <%= form_with model: @post, local: true, html: { class: "new-post-form"} do |f| %>
+    
+    <label for="post_picture">
+      <i class="fas fa-camera fa-3x"></i>
+      <p>写真を投稿してみよう</p>
+      <%= f.file_field :picture %>
+    </label>
+
+    <%= f.text_area :content, placeholder: "留学について投稿してみよう"%>
+
+    <%= f.submit "投稿", class: "post-new-btn" %>
+  <% end %>
+</div>
+<%= render 'shared/nav_bottom'%>
