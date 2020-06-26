@@ -1,13 +1,16 @@
-
-  <div class="user-top-wrapper">
+<div class="user-top-wrapper">
     <div class="user-info">
-      
+      <% if @user.image.attached? %>
+        <%= image_tag @user.image %>
+      <% else %>
+        <%= image_tag "/assets/default.jpg" %>
+      <% end %>
         <span><%= @user.name%></span>
     </div>
       <p class="margin-adjust">投稿数 <span class="follow-count"></span></p>
       
         <p class="margin-adjust follow-link">フォロワー <span class="follow-count"></span></p>
-     
+      
       
         <p class="follow-link">フォロー中 <span class="follow-count"></span></p>
       

@@ -1,12 +1,12 @@
-<%= render 'shared/nav-left'%>
+
 <div class="user-edit-wrapper">
   <div class="edit-title">Your Profile</div>
-    <%= render 'shared/error_messages'%>
+    
     <%= form_with model: @user, html: { class: "topBefore"} do |f| %>
     <label class="edit-file-label" for="user_image">
       <div>
-      <% if @user.image? %>
-      <%= image_tag @user.image.url %>
+      <% if @user.image.attached? %>
+        <%= image_tag @user.image %>
       <% else %>
         <%= image_tag "/assets/default.jpg" %>
       <% end %>
@@ -20,4 +20,4 @@
     
     <% end %>
   </div>
-  <%= render 'shared/nav_bottom'%>
+  
