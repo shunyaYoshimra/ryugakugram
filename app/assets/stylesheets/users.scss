@@ -396,36 +396,6 @@ textarea:hover {
   margin-top: 40px;
 }
 
-.user-nav-wrapper{
-  position: fixed;
-  top: 200px;
-  left: 40px;
-}
-
-.user-nav-wrapper li{
-  list-style: none;
-}
-
-.user-nav{
-  margin-bottom: 80px;
-}
-
-.user-nav li{
-  margin-bottom: 20px;
-}
-
-.nav-bottom{
-  display: none;
-}
-
-.nav-icon-left, .nav-icon-center, .nav-icon-right{
-  color: #666;
-}
-
-.nav-icon-left:hover, .nav-icon-center:hover, .nav-icon-right:hover{
-  opacity: 0.7;
-}
-
 .user-info img{
   width: 100px;
   height: 100px;
@@ -478,6 +448,47 @@ textarea:hover {
 
 .follow-link{
   color: #333;
+}
+
+// following
+
+.following-wrapper{
+  margin-top: 120px;
+  margin-left: 520px;
+}
+
+.following-user{
+  display: flex;
+  margin-top: 10px;
+  width: 500px;
+  padding: 4px 25px;
+  border-radius: 2px;
+}
+
+.following-user img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.following-profile{
+  font-size: 0.75rem;
+}
+
+.follow-title{
+  transform: translateX(-230px);
+  margin-bottom: 20px;
+}
+
+//followers
+
+.follower-btn{
+  font-size: 0.5rem;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  margin-left: 20px;
 }
 
 // responsive

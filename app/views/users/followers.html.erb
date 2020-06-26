@@ -1,0 +1,32 @@
+<%= render 'shared/nav_left' %>
+<div class="following-wrapper">
+<h2 class="post-title follow-title">Your Follwers</h2>
+<% @followers.each do |follower| %>
+  <div class="following-user">
+    <%= link_to user_path(follower) do %>
+      <% if follower.image.attached? %>
+        <%= image_tag follower.image %>
+      <% else %>
+        <%= image_tag "/assets/default.jpg" %>
+      <% end %>
+    <% end %>
+    <div class="following-profile">
+      <p><%= follower.name %></p>
+      <p><%= follower.profile %></p>
+    </div>
+    <% if current_user != follower %>
+      <% if @user.following?(follower) %>
+        <%= form_for(@user.active_relationships.find_by(followed_id: follower.id), html: { method: :delete }) do |f| %>
+          <%= f.submit "フォロー中", class: "follower-btn", data: { confirm: 'フォローを解除しますか？'} %>
+        <% end %>
+      <% else %>
+        <%= form_for(@user.active_relationships.build) do |f| %>
+        <div><%= hidden_field_tag :followed_id, follower.id %></div>
+          <%= f.submit "フォローする", class: "follower-btn" %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+</div>
+<%= render 'shared/nav_bottom' %>

@@ -7,7 +7,7 @@
       <% end %>
       <div class="card-body">
         <%= link_to user_path (@post.user) do %>
-          <% if @post.user.image %>
+          <% if @post.user.image.attached? %>
             <%= image_tag @post.user.image, size: '46x46' %>
           <% else %>
             <%= image_tag "/assets/default.jpg", size: '46x46' %>

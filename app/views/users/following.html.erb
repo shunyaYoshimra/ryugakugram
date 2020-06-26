@@ -1,0 +1,20 @@
+<%= render 'shared/nav_left' %>
+<div class="following-wrapper">
+<h2 class="post-title follow-title">Your Following</h2>
+<% @following.each do |following| %>
+  <div class="following-user">
+    <%= link_to user_path(following) do %>
+      <%if following.image.attached? %>
+        <%= image_tag following.image %>
+      <% else %>
+        <%= image_tag "/assets/default.jpg" %>
+      <% end %>
+    <% end %>
+    <div class="following-profile">
+      <p><%= following.name %></p>
+      <p><%= following.profile %></p>
+    </div>
+  </div>
+<% end %>
+</div>
+<%= render 'shared/nav_bottom' %>

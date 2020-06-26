@@ -9,12 +9,27 @@
     </div>
       <p class="margin-adjust">投稿数 <span class="follow-count"></span></p>
       
-        <p class="margin-adjust follow-link">フォロワー <span class="follow-count"></span></p>
-      
-      
-        <p class="follow-link">フォロー中 <span class="follow-count"></span></p>
+      <%= link_to followers_user_path(@user) do %>
+        <p class="margin-adjust follow-link">フォロワー <span class="follow-count"><%= @user.followers.count %></span></p>
+      <% end %>
+      <%= link_to following_user_path(@user) do %>
+        <p class="follow-link">フォロー中 <span class="follow-count"><%= @user.following.count %></span></p>
+      <% end %>
       
   </div>
+
+  <% if current_user != @user%>
+    <% if current_user.following?(@user) %>
+      <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id), html: { method: :delete }) do |f| %>
+        <%= f.submit "フォロー解除", class: "follow-btn", data: { confirm: 'フォローを解除しますか？'} %>
+      <% end %>
+    <% else %>
+      <%= form_for(current_user.active_relationships.build) do |f| %>
+      <div><%= hidden_field_tag :followed_id, @user.id %></div>
+        <%= f.submit "フォロー", class: "follow-btn" %>
+      <% end %>
+    <% end %>
+  <% end %>
   
   <div class="user-profile">
     <% if @user.profile? %>
@@ -24,11 +39,13 @@
     <% end %>
   </div>
   
+  <% if current_user == @user %>
     <div class="edit-link">
       <%= link_to edit_user_path @user do %>
-      <span>プロフィールを編集</span>
+        <span>プロフィールを編集</span>
       <% end %>
     </div>
+  <% end %>
 
   <h2 class="post-title">Your Post</h2>
   <div>
