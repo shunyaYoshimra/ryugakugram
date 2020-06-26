@@ -1,2 +1,32 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<%= render 'shared/nav_left'%>
+<div class="post-index">
+  <% @posts.each do |post| %>
+    <div class="card">
+      <% if post.picture? %>
+        <%= link_to post_path(post) do %>
+          <%= image_tag post.picture.url, class: 'card-img-top' %>
+        <% end %>
+      <% end %>
+      <div class="card-body">
+      <%= link_to user_path (post.user) do %>
+        <% if post.user.image? %>
+          <%= image_tag post.user.image.url, size: '46x46' %>
+        <% else %>
+          <%= image_tag "/assets/default.jpg", size: '46x46' %>
+        <% end %>
+        <% end %>
+        <%= post.user.name %>
+        <p class="card-text"><%= post.content %></p>
+          
+        <% if current_user.id == post.user_id %>
+          <%= link_to post_path(post), method: :delete do %>
+            <span class="like-trash"><i class="fas fa-trash-alt"></i></span>
+          <% end %>
+        <% end %>
+        <small><time><%= post.created_at.to_s(:datetime_jp) %></time></small>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= render 'shared/nav_bottom'%>
+
