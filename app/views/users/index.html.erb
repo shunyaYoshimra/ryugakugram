@@ -1,0 +1,30 @@
+<div class="user-serch">
+  <h2 class="post-title">Search</h2>
+  <p>自分が気になる国に留学した人を探してみよう</p>
+  <%= search_form_for @q do |f| %>
+    <%= f.search_field :name_cont, placeholder: "Name", class: "search-text"%>
+    <%= f.search_field :country_cont, placeholder: "Country", class: "search-text"%>
+    <%= f.submit class: 'search-btn'%>
+  <% end %>
+</div>
+<div class="users-index">
+  <% @users.each do |user| %>
+    <div class="following-user searched-users">
+      <%= link_to user_path(user) do %>
+        <%if user.image.attached? %>
+          <%= image_tag user.image %>
+        <% else %>
+          <%= image_tag "/assets/default.jpg" %>
+        <% end %>
+      <% end %>
+      <div class="following-profile">
+        <p><%= user.name %></p>
+        <% if user.profile? %>
+          <p><%= user.profile %></p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= render 'shared/nav_bottom'%>
+
