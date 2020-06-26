@@ -1,0 +1,14 @@
+<div class="user-nav-wrapper">
+    <ul class="user-nav">
+      <%= link_to posts_path do %>
+        <li><i class="fas fa-home"></i> みんなの投稿</li>
+      <% end %>
+      <%= link_to users_path do %>
+        <li><i class="fas fa-search"></i> 検索</li>
+      <% end %>
+      <%= link_to new_post_path do %>
+        <li><i class="fas fa-file"></i> 投稿する</li>
+      <% end %>
+    </ul>
+    <img src="/assets/sab-image" width="300px">
+</div>
