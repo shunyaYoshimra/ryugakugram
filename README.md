@@ -1,24 +1,26 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Ryugakugram
 
-Things you may want to cover:
+This application is supposed to use for sharing your study abroad experience, or know what life in the country you want to go in the future like.
 
-* Ruby version
+このアプリケーションは、あなたの留学経験を共有したり、あなたが将来いきたい国の暮らしがどのようであるか知るために使えます。
+ 
+# Features
+ 
+ This aplication has search function that you can search by the country you would like to know.
 
-* System dependencies
+ このアプリケーションには、検索機能があり、あなたが知りたい国について検索することができます。
 
-* Configuration
+ 
 
-* Database creation
+# Author
+ 
+Shunya Yoshimura
+吉村　舜也
 
-* Database initialization
+Kobe city univercity of foreign studies
+神戸市外国語大学
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+maoorgri1015@gmail.com
+ 
