@@ -37,6 +37,54 @@
       <li><i class="fas fa-heart fa-lg icon-right"></i></li>
     </ul>
   </div>
+  <div class="this-user-post-picture active">
+    <% if @posts %>
+      <% @posts.each do |post| %>
+        <% if post.picture.attached? %>
+          <%= link_to post_path (post) do %>
+          <%= image_tag post.picture, size: '95x95' %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p><i class="fas fa-plus-square"></i></p>
+      <p>あなたの留学をみんなにシェアしよう</p>
+    <% end %>
+  </div>
+
+  <div class="this-user-liked-picture">
+    <% if @likes %>
+      <% @likes.each do |like| %>
+        <% if Post.find_by(id: like.post_id).picture.attached? %>
+          <%= link_to post_path Post.find(like.post_id) do %>
+            <%= image_tag Post.find_by(id: like.post_id).picture, size: '95x95' %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p><i class="fas fa-plus-square"></i></p>
+      <p>他の人の投稿にいいねしてみよう</p>
+    <% end %>
+  </div>
+    
+  
+  <%= render 'shared/nav_bottom'%>
+
+<script>
+  $('.icon-right').click(function(){
+    $('.icon-right').css('color', '#333');
+    $('.icon-left').css('color', '#999');
+    $('.this-user-post-picture').removeClass('active');
+    $('.this-user-liked-picture').addClass('active');
+  })
+  $('.icon-left').click(function(){
+    $('.icon-right').css('color', '#999');
+    $('.icon-left').css('color', '#333');
+    $('.this-user-liked-picture').removeClass('active');
+    $('.this-user-post-picture').addClass('active');
+  })
+</script>
+
   <%= render 'shared/nav_left'%>
   <%= render 'shared/nav_bottom'%>
   
