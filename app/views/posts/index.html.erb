@@ -19,7 +19,7 @@
         <p class="card-text"><%= post.content %></p>
         
         <% if current_user.id == post.user_id %>
-          <%= link_to post_path(post), method: :delete do %>
+          <%= link_to post_path(post), method: :delete, class: 'delete', remote: true, data: { confirm: '投稿を削除します。よろしいですか？'} do %>
             <span class="like-trash"><i class="fas fa-trash-alt"></i></span>
           <% end %>
         <% end %>
