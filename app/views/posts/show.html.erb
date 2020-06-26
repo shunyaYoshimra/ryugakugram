@@ -15,6 +15,16 @@
       <% end %>
         <%= @post.user.name %>
         <p class="card-text"><%= @post.content %></p>
+
+        <% if Like.find_by(user_id: current_user.id, post_id: @post.id)%>
+          <%= link_to post_like_path(@post), method: :delete do %>
+            <i class="fas fa-heart liked"></i><span class="likes-count"><%= Like.where(post_id: @post.id).count %></span>
+          <% end %>
+        <% else %>
+          <%= link_to post_likes_path(@post), method: :post do %>
+            <i class="fas fa-heart unlike"></i><span class="please-good">いいね！</span>
+          <% end %>
+        <% end %>
           
         <% if current_user.id == @post.user_id %>
           <%= link_to post_path(@post), method: :delete do %>
