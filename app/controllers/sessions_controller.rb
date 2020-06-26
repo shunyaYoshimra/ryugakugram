@@ -14,12 +14,12 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    reset_session
     log_out if logged_in?
     redirect_to root_url
   end
 
   private
-
   def session_params
     params.require(:session).permit(:email,:password)
   end
