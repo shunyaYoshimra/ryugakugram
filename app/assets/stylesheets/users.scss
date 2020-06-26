@@ -338,3 +338,164 @@ textarea:hover {
   margin-bottom: 5px;
 }
 
+// responsive
+
+@media (max-width: 670px){
+  form{
+    width: 80%;
+    transform: translateX(50px);
+  }
+
+  .title{
+    transform: translateY(30px);
+  }
+
+  .submit-btn{
+    margin-bottom: 7%;
+  }
+
+  /*show-user*/
+  .user-top-wrapper{
+    margin-top: 140px;
+  }
+
+  .user-top-wrapper{
+    font-size: 0.5rem;
+  }
+
+  .edit-link span{
+    font-size: 0.5rem;
+  }
+
+  .select-icon{
+    transform: translateX(0);
+    width: auto;
+  }
+
+  .icon-left{
+    margin-right: 110px;
+  }
+  
+  .icon-right{
+    margin-left: 110px;
+  }
+
+  .post-title{
+    margin-top: 25px;
+  }
+
+  .user-nav-wrapper{
+    display: none;
+  }
+
+  .nav-bottom{
+    display: block;
+    position: fixed;
+    bottom: 50px;
+    color: #666;
+    border-top: 0.1px solid #333;
+    width: 100%;
+    padding-top: 10px;
+    text-align: center;
+    background-color: #fff;
+  }
+
+  .nav-icon-center{
+    margin: 0px 90px;
+  }
+
+  .user-info img{
+    width: 70px;
+    height: 70px;
+  }
+
+  .user-profile{
+    font-size: 0.5rem;
+  }
+  .this-user-post-picture{
+    transform: translateX(2px);
+    width: 500px;
+  }
+
+  .this-user-liked-picture{
+    transform: translateX(2px);
+    width: 500px;
+  }
+
+  .follow-btn{
+    transform: translate(120px, -50px);
+  }
+
+  /* edit-user */
+  .edit-title{
+    font-size: 2rem;
+  }
+  .edit-form{
+    width: 77%;
+    display: block;
+  }
+
+  .edit-file-label img{
+    width: 70px; 
+    height: 70px;
+  }
+
+  .submit-btn{
+    width: 60%;
+    border-radius: 5px;
+  }
+
+  /* following */
+
+  .following-wrapper{
+    margin-left: 0;
+  }
+  
+  .following-user{
+    margin-top: 10px;
+    width: 460px;
+    padding: 4px 25px;
+    border-radius: 2px;
+  }
+  
+  .following-user img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  
+  .following-profile{
+    font-size: 0.75rem;
+  }
+
+  .follow-title{
+    transform: translateX(0);
+  }
+
+  .following-profile p{
+    width: 200px;
+  }
+  
+  /* user-index */
+  .user-serch p{
+    font-size: 0.75rem;
+    margin-bottom: 15px;
+  }
+  
+  .search-text{
+    width: 150px;
+    border-radius: 5px;
+  }
+  .search-btn{
+    width: 80px;
+    border-radius: 5px;
+  }
+
+  .users-index{
+    margin-left: 65px;
+    width: 350px;
+  }
+}
+
+
